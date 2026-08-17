@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}About - My Django Website{% endblock %}
+
+{% block content %}
+<h1>ℹ️ About This Project</h1>
+<p>This is a beginner-friendly Django project. It was made to help you learn how Django works.</p>
+
+<h2>Project structure</h2>
+<p>📁 <code>myproject/</code> — project settings (settings.py, urls.py)</p>
+<p>📁 <code>myapp/</code> — your app (models.py, views.py, urls.py)</p>
+<p>📁 <code>templates/</code> — HTML pages</p>
+<p>📄 <code>manage.py</code> — the command tool (runserver, migrate, etc.)</p>
+<p>📄 <code>db.sqlite3</code> — the database file (created automatically)</p>
+
+<h2>Try editing it!</h2>
+<p>Open <code>templates/about.html</code> in VS Code, change this text, save the file, and refresh your browser. You will see your change instantly — that is the magic of the development server. 🚀</p>
+
+<p><a class="btn" href="{% url 'home' %}">← Back to Home</a></p>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}To-Do List - My Django Website{% endblock %}
+
+{% block content %}
+<h1>📝 My To-Do List</h1>
+<p>These tasks are saved in the <code>db.sqlite3</code> database. Add one and refresh — it stays there!</p>
+
+<form class="add-form" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="What do you need to do?" required autofocus>
+    <button class="btn" type="submit">Add Task</button>
+</form>
+
+{% if tasks %}
+<ul class="tasks">
+    {% for task in tasks %}
+    <li class="{% if task.completed %}done{% endif %}">
+        <span class="task-title">
+            {% if task.completed %}✅{% else %}⬜{% endif %} {{ task.title }}
+        </span>
+        <span class="task-actions">
+            <a class="done-link" href="{% url 'complete_task' task.id %}">
+                {% if task.completed %}Undo{% else %}Done{% endif %}
+            </a>
+            <a class="delete-link" href="{% url 'delete_task' task.id %}">Delete</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="empty">No tasks yet. Add your first task above! ☝️</p>
+{% endif %}
+
+<p style="margin-top: 20px;"><a class="btn" href="{% url 'home' %}">← Back to Home</a></p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Django Website{% endblock %}
+
+{% block content %}
+<h1>🎉 Congratulations! Django is Working!</h1>
+<p>You have successfully started your first Django website. Well done!</p>
+
+<h2>What can you do now?</h2>
+<p>✅ Try the <a href="{% url 'todo' %}">To-Do List</a> — it saves data in a real database (SQLite).</p>
+<p>✅ Visit the <a href="{% url 'about' %}">About page</a> to see how pages link together.</p>
+<p>✅ Open the <a href="/admin/">Admin Panel</a> to manage data (needs a superuser — see the tutorial).</p>
+
+<h2>How does this page work?</h2>
+<p>1. You opened <code>/</code> in your browser.</p>
+<p>2. Django looked at <code>urls.py</code> and sent the request to the <code>home</code> view in <code>views.py</code>.</p>
+<p>3. The view rendered this template: <code>templates/home.html</code>.</p>
+
+<p><a class="btn" href="{% url 'todo' %}">Open the To-Do App →</a></p>
+{% endblock %}
